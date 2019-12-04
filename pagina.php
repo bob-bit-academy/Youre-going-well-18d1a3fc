@@ -1,32 +1,34 @@
 <?php
-echo "> hoeveel vrienden zal ik vragen om hun droom". PHP_EOL;
-$aantalvrienden = readline("> ");
-$informatie = array(
-);
-    if (is_numeric($aantalvrienden)) {
-        for ($tell = 1; $tell <= $aantalvrienden; $tell++) 
-        { 
-        echo "> Wat is je naam?" . PHP_EOL;
-        $naam = readline("> ");
-        
-        echo "> Hoeveel dromen heb je?" . PHP_EOL;
-        $aantaldromen = readline("> ");
-            $bruh = array();
-        for ($tell2 = 1; $tell2 <= $aantaldromen; $tell2++){
-            echo "> wat is je droom man neef broer" . PHP_EOL;
-            $dromen = Readline("> ");
-           $bruh[] = $dromen;
-        }
-            $informatie[$naam] = $bruh;
-    } 
+echo "Welke operatie wil je uitvoeren? (+, -, %) \n";
+$keuze = readline();
+if ($keuze == "+" || $keuze == "-" || $keuze == "%"){
+    echo "Eerste getal?\n";
+$eerste_getal = readline();
+if (is_numeric($eerste_getal)){
+echo "Tweede getal?\n";
+$tweede_getal = readline();
+if(is_numeric($tweede_getal)){
+    
 }
-else
-{
-    exit("> '" . $aantalvrienden . "' is niet een nummer.");
+else {
+    echo " '$tweede_getal' is geen getal" . PHP_EOL;
+    exit();
 }
-foreach($informatie as $naam => $array){
-    foreach($array as $array => $inhoud){
-    echo "> de droom van $naam is: $inhoud" . PHP_EOL;    
-    }
-}    
-exit;
+if ($keuze == "%"){
+    $uitkomst = $eerste_getal % $tweede_getal;
+    echo("Uw resultaat is: " . $uitkomst);
+}
+if ($keuze == "-"){
+    $uitkomst = $eerste_getal - $tweede_getal;
+    echo("Uw resultaat is: " . $uitkomst);
+}
+if ($keuze == "+"){
+    $uitkomst = $eerste_getal + $tweede_getal;
+    echo("Uw resultaat is: " . $uitkomst);
+}
+}
+}
+    
+else {
+    echo "Dit is geen geldeg oparatie"; exit();
+}
